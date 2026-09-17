@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mia Bederman | Engineering Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    
+    /* Layout Containers */
+    header, main, footer { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    
+    /* Navigation */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+    .nav-links a { margin-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero Section */
+    .hero { padding: 4rem 0 3rem; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 700px; }
+    .hero-ctas { margin-top: 1.5rem; display: flex; gap: 1rem; }
+    .btn { padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; }
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); }
+
+    /* Section Styling */
+    .section-title { font-size: 1.5rem; margin: 3rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    
+    /* Project Detailed Block */
+    .project-detail { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
+    .project-detail h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .project-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .project-body p { margin-bottom: 1rem; color: var(--text-muted); }
+    
+    /* Design Cycle Steps */
+    .cycle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .cycle-step { background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px; }
+    .cycle-step h4 { font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
+    .cycle-step p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+    /* Media Placeholders */
+    .image-placeholder { background: var(--bg); border: 1px dashed var(--border); border-radius: 6px; padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag { background: var(--bg); color: var(--accent); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid var(--border); }
+
+    /* Footer */
+    footer { padding: 3rem 0; border-top: 1px solid var(--border); margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">MIA BEDERMAN</div>
+      <div class="nav-links">
+        <a href="#duck-rescue">Duck Rescue</a>
+        <a href="#drafting">Technical Drafting</a>
+        <a href="Engineering portfolio.pdf" target="_blank">Full Portfolio PDF</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>High School Technology & Engineering Portfolio</h1>
+      <p>Student at New Trier High School Technology Education Department. Documenting physical prototyping, the engineering design cycle, iterative testing, and multi-view technical drafting.</p>
+      <div class="hero-ctas">
+        <a href="#duck-rescue" class="btn btn-primary">View Projects</a>
+        <a href="Engineering_Notebook_Template+for+Duck+Rescue.pdf" target="_blank" class="btn btn-secondary">View Engineering Notebook</a>
+      </div>
+    </section>
+
+    <h2 id="duck-rescue" class="section-title">Featured Projects</h2>
+
+    <!-- Project 1: Duck Rescue -->
+    <article class="project-detail">
+      <h3>Duck Rescue Challenge ("Duckez")</h3>
+      <div class="project-meta">Team: Mia & Ignacio | Class: Period 6 | Timeline: Aug 25 – Sept 4</div>
+      
+      <div class="project-body">
+        <p><strong>Problem Statement:</strong> Design and build a retrieval device to safely recover rubber ducks from a restricted pool area at least 3 feet away within a 2-minute time limit, without entering the water.</p>
+        
+        <div class="cycle-grid">
+          <div class="cycle-step">
+            <h4>1. Initial Concept</h4>
+            <p>Designed a wide net connected to PVC poles and extension strings to cover maximum area across the pool width.</p>
+          </div>
+          <div class="cycle-step">
+            <h4>2. Prototype #1 Failure</h4>
+            <p>During initial testing, the net could not break the water's surface tension, floating on top and retrieving 0 ducks.</p>
+          </div>
+          <div class="cycle-step">
+            <h4>3. Iteration & Solution</h4>
+            <p>Added strategically tied weights to force the net beneath the water surface, enabling an effective scoop and lift mechanism.</p>
+          </div>
+        </div>
+
+        <p><strong>Reflection:</strong> Iterating from 0 ducks rescued to a working design demonstrated the importance of evidence-based testing. Future revisions would focus on optimizing weight placement along the net edge for a more balanced scoop.</p>
+      </div>
+
+      <div class="image-placeholder">
+        📸 [Image Gallery: Design Sketches & Prototype Photos]
+      </div>
+
+      <div class="tags">
+        <span class="tag">Rapid Prototyping</span>
+        <span class="tag">Iterative Testing</span>
+        <span class="tag">Engineering Design Cycle</span>
+        <span class="tag">Team Collaboration</span>
+      </div>
+    </article>
+
+    <!-- Project 2: Technical Drafting -->
+    <article class="project-detail" id="drafting">
+      <h3>Technical Drafting & Orthographic Design</h3>
+      <div class="project-meta">New Trier High School Technology Education Department</div>
+      
+      <div class="project-body">
+        <p>Multi-view orthographic and isometric technical hand-sketches detailing structural and mechanical vehicle components, adhering to standard engineering title block and scaling formats.</p>
+      </div>
+
+      <div class="image-placeholder">
+        📐 [Image Placeholder: Technical Drawing Sheet]
+      </div>
+
+      <div class="tags">
+        <span class="tag">Technical Drawing</span>
+        <span class="tag">Orthographic Projection</span>
+        <span class="tag">Isometric Views</span>
+        <span class="tag">Drafting Standards</span>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mia Bederman. New Trier Engineering Program.</p>
+    <p><a href="#top">Back to top ↑</a></p>
+  </footer>
+
+</body>
+</html>
