@@ -18,12 +18,12 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
     a { color: var(--accent); text-decoration: none; }
-    
+
     /* Layout Containers */
     header, main, footer { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
-    
+
     /* Navigation */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
     .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
     .nav-links a { margin-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
     .nav-links a:hover { color: var(--accent); }
@@ -32,7 +32,7 @@
     .hero { padding: 4rem 0 3rem; }
     .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
     .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 700px; }
-    .hero-ctas { margin-top: 1.5rem; display: flex; gap: 1rem; }
+    .hero-ctas { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn { padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; display: inline-block; }
     .btn-primary { background: var(--accent); color: var(--bg); }
     .btn-secondary { border: 1px solid var(--border); color: var(--text); background: #334155; }
@@ -40,18 +40,25 @@
 
     /* Section Styling */
     .section-title { font-size: 1.5rem; margin: 3rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    
+
     /* Project Detailed Block */
     .project-detail { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
     .project-detail h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem; }
     .project-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
     .project-body p { margin-bottom: 1rem; color: var(--text-muted); }
-    
+
     /* Design Cycle Steps */
     .cycle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
     .cycle-step { background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px; }
     .cycle-step h4 { font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
     .cycle-step p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+    /* Highlight Box inside CAD section */
+    .feature-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; margin: 1.25rem 0; }
+    .feature-box h4 { font-size: 1rem; color: var(--text); margin-bottom: 0.4rem; }
+    .feature-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .feature-box ul { margin-left: 1.25rem; color: var(--text-muted); font-size: 0.9rem; }
+    .feature-box li { margin-bottom: 0.35rem; }
 
     /* Tags */
     .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
@@ -69,7 +76,7 @@
       <div class="nav-links">
         <a href="#duck-rescue">Duck Rescue</a>
         <a href="#drafting">Technical Drafting</a>
-        <a href="#cad-modeling">3D CAD</a>
+        <a href="#cad-modeling">3D CAD &amp; Gearbox</a>
         <a href="EngineeringPortfolio.pdf" target="_blank">Full Portfolio PDF</a>
       </div>
     </nav>
@@ -77,8 +84,8 @@
 
   <main>
     <section class="hero">
-      <h1>High School Technology & Engineering Portfolio</h1>
-      <p>Student at New Trier High School Technology Education Department. Documenting physical prototyping, the engineering design cycle, iterative testing, and multi-view technical drafting.</p>
+      <h1>High School Technology &amp; Engineering Portfolio</h1>
+      <p>Student at New Trier High School Technology Education Department. Documenting physical prototyping, the engineering design cycle, iterative testing, 3D CAD assemblies, and multi-view technical drafting.</p>
       <div class="hero-ctas">
         <a href="#duck-rescue" class="btn btn-primary">View Projects</a>
         <a href="duckRescueNotebook.pdf" target="_blank" class="btn btn-secondary">View Engineering Notebook</a>
@@ -89,12 +96,12 @@
 
     <!-- Project 1: Duck Rescue -->
     <article class="project-detail">
-      <h3>Duck Rescue Challenge </h3>
-      <div class="project-meta">Team: Mia & Ignacio | Class: Period 6 | Timeline: Aug 25 – Sept 4</div>
-      
+      <h3>Duck Rescue Challenge</h3>
+      <div class="project-meta">Team: Mia &amp; Ignacio | Class: Period 6 | Timeline: Aug 25 – Sept 4</div>
+
       <div class="project-body">
         <p><strong>Problem Statement:</strong> Design and build a retrieval device to safely recover rubber ducks from a restricted pool area at least 3 feet away within a 2-minute time limit, without entering the water.</p>
-        
+
         <div class="cycle-grid">
           <div class="cycle-step">
             <h4>1. Initial Concept</h4>
@@ -105,7 +112,7 @@
             <p>During initial testing, the net could not break the water's surface tension, floating on top and retrieving 0 ducks.</p>
           </div>
           <div class="cycle-step">
-            <h4>3. Iteration & Solution</h4>
+            <h4>3. Iteration &amp; Solution</h4>
             <p>Added strategically tied weights to force the net beneath the water surface, enabling an effective scoop and lift mechanism.</p>
           </div>
         </div>
@@ -113,8 +120,8 @@
         <p><strong>Reflection:</strong> Iterating from 0 ducks rescued to a working design demonstrated the importance of evidence-based testing. Future revisions would focus on optimizing weight placement along the net edge for a more balanced scoop.</p>
       </div>
 
-      <h4 style="font-size: 1rem; color: var(--accent); margin-bottom: 0.75rem;">Design Drawings & Prototype Photos</h4>
-      
+      <h4 style="font-size: 1rem; color: var(--accent); margin-bottom: 0.75rem;">Design Drawings &amp; Prototype Photos</h4>
+
       <!-- 6-Image Grid -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
         <div style="text-align: center;">
@@ -163,9 +170,9 @@
 
     <!-- Project 2: Technical Drafting -->
     <article class="project-detail" id="drafting">
-      <h3>Technical Drafting & Orthographic Design</h3>
+      <h3>Technical Drafting &amp; Orthographic Design</h3>
       <div class="project-meta">New Trier High School Technology Education Department</div>
-      
+
       <div class="project-body">
         <p>Multi-view orthographic and isometric technical hand-sketches detailing structural and mechanical vehicle components, adhering to standard engineering title block and scaling formats.</p>
       </div>
@@ -187,29 +194,40 @@
       </div>
     </article>
 
-    <!-- Project 3: 3D CAD Modeling -->
+    <!-- Project 3: 3D CAD Modeling & Gearbox -->
     <article class="project-detail" id="cad-modeling">
-      <h3>3D CAD Modeling & Parametric Design</h3>
-      <div class="project-meta">Autodesk Fusion | September 2026</div>
+      <h3>3D CAD Modeling &amp; Gearbox Drawings</h3>
+      <div class="project-meta">Autodesk Fusion | October 2026</div>
 
       <div class="project-body">
-        <p>Applied parametric 3D modeling workflows in Autodesk Fusion to construct multi-featured mechanical components from dimensioned orthographic blueprints.</p>
+        <p>Created 3D CAD parts and multi-sheet engineering drawings in Autodesk Fusion for a multi-part gearbox assembly, pairing an exploded assembly view with dimensioned component drawings.</p>
+
+        <div class="feature-box">
+          <h4>Drawing Set Structure</h4>
+          <ul>
+            <li><strong>Exploded Assembly &amp; Parts List:</strong> Opens with an exploded view showing every part in assembly order alongside a bill of materials (housing panels, pins, alignment bracket, and gears).</li>
+            <li><strong>Dimensioned Component Sheets:</strong> Individual drawing sheets for each gearbox part featuring front, top, and side orthographic views with hidden lines and tolerances/dimensions.</li>
+            <li><strong>Shaded Isometric Reference:</strong> Every part sheet includes a shaded isometric view in the upper-right corner for quick visual verification.</li>
+          </ul>
+        </div>
       </div>
 
       <div style="background: var(--bg); border: 1px dashed var(--border); border-radius: 6px; padding: 1.25rem; text-align: center; margin-top: 1.5rem;">
         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem;">
-          💻 View dimensioned blueprint exercises and completed Autodesk Fusion 3D model renders.
+          ⚙️ Explore the full gearbox drawing set (exploded assembly + individual dimensioned part sheets).
         </p>
-        <a href="fusion-3d-modeling.pdf" target="_blank" class="btn btn-secondary">
-          Open Fusion Design Assignment (PDF) &rarr;
+        <!-- Update href below to match your hosted PDF filename(s) -->
+        <a href="gearbox-drawings.pdf" target="_blank" class="btn btn-secondary">
+          Open Gearbox Drawings (PDF) &rarr;
         </a>
       </div>
 
       <div class="tags">
         <span class="tag">Autodesk Fusion</span>
         <span class="tag">3D CAD Modeling</span>
-        <span class="tag">Parametric Design</span>
-        <span class="tag">Blueprint Interpretation</span>
+        <span class="tag">Exploded Assembly</span>
+        <span class="tag">Hidden Lines &amp; Dimensions</span>
+        <span class="tag">Isometric Views</span>
       </div>
     </article>
 
@@ -217,7 +235,7 @@
 
   <footer>
     <p>&copy; 2026 Mia Bederman. New Trier Engineering Program.</p>
-    <p><a href="#top">Back to top ↑</a></p>
+    <p><a href="#top">Back to top &uarr;</a></p>
   </footer>
 
 </body>
