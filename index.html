@@ -53,12 +53,17 @@
     .cycle-step h4 { font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
     .cycle-step p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
 
-    /* Highlight Box & Part Links inside CAD section */
+    /* Highlight Box, Video Grid & Part Links inside CAD section */
     .feature-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; margin: 1.25rem 0; }
     .feature-box h4 { font-size: 1rem; color: var(--text); margin-bottom: 0.4rem; }
     .feature-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
     .feature-box ul { margin-left: 1.25rem; color: var(--text-muted); font-size: 0.9rem; }
     .feature-box li { margin-bottom: 0.35rem; }
+
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .video-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem; }
+    .video-card video { width: 100%; border-radius: 4px; background: #000; display: block; }
+    .video-card p { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0; }
 
     .part-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.6rem; margin-top: 0.75rem; }
     .part-link { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.8rem; font-size: 0.85rem; color: var(--text); }
@@ -204,7 +209,24 @@
       <div class="project-meta">Autodesk Fusion | October 2026</div>
 
       <div class="project-body">
-        <p>Modeled individual gearbox components in Autodesk Fusion and compiled a multi-sheet drawing set featuring an exploded assembly view followed by dimensioned orthographic and isometric part drawings.</p>
+        <p>Modeled individual gearbox components in Autodesk Fusion, demonstrated turning, motion links, and assembly animation in Fusion video captures, and compiled a multi-sheet drawing set featuring an exploded assembly view followed by dimensioned orthographic and isometric part drawings.</p>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="gearboxVideo.mov" type="video/quicktime">
+              Your browser does not support the video tag.
+            </video>
+            <p><strong>Turning &amp; Motion Links:</strong> Fusion video showing gear turning and linked motion behavior.</p>
+          </div>
+          <div class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="gearboxVideo2.mov" type="video/quicktime">
+              Your browser does not support the video tag.
+            </video>
+            <p><strong>Gearbox Animation:</strong> Fusion video demonstrating the gearbox motion sequence.</p>
+          </div>
+        </div>
 
         <div class="feature-box">
           <h4>Drawing Set &amp; CAD Parts Overview</h4>
@@ -242,6 +264,7 @@
       <div class="tags">
         <span class="tag">Autodesk Fusion</span>
         <span class="tag">3D CAD Modeling</span>
+        <span class="tag">Motion Links &amp; Animation</span>
         <span class="tag">Exploded Assembly</span>
         <span class="tag">Hidden Lines &amp; Dimensions</span>
         <span class="tag">Isometric Views</span>
