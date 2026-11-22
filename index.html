@@ -1,461 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mia Bederman — Engineering Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mia Bederman | Engineering Portfolio</title>
   <style>
     :root {
-      --bg: #fafaf9;
-      --surface: #ffffff;
-      --text: #1c1917;
-      --muted: #57534e;
-      --border: #e7e5e4;
-      --accent: #2563eb;
-      --accent-soft: #eff6ff;
-      --pass: #15803d;
-      --pass-bg: #f0fdf4;
-      --fail: #b91c1c;
-      --fail-bg: #fef2f2;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    /* Layout Containers */
+    header, main, footer { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
 
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-    }
+    /* Navigation */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+    .nav-links a { margin-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--accent); }
 
-    header.site-header {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
+    /* Hero Section */
+    .hero { padding: 4rem 0 3rem; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 700px; }
+    .hero-ctas { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; display: inline-block; }
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); background: #334155; }
+    .btn-secondary:hover { background: #475569; }
 
-    .eyebrow {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    /* Section Styling */
+    .section-title { font-size: 1.5rem; margin: 3rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
 
-    h1 {
-      margin: 0.25rem 0 0.5rem;
-      font-size: 2rem;
-    }
+    /* Project Detailed Block */
+    .project-detail { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
+    .project-detail h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .project-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .project-body p { margin-bottom: 1rem; color: var(--text-muted); }
 
-    h2 {
-      margin: 0 0 0.75rem;
-      font-size: 1.5rem;
-    }
+    /* Design Cycle Steps */
+    .cycle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .cycle-step { background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px; }
+    .cycle-step h4 { font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
+    .cycle-step p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
 
-    h3 {
-      margin: 1.5rem 0 0.5rem;
-      font-size: 1.15rem;
-    }
+    /* Highlight Box, Video Grid & Part Links inside CAD section */
+    .feature-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; margin: 1.25rem 0; }
+    .feature-box h4 { font-size: 1rem; color: var(--text); margin-bottom: 0.4rem; }
+    .feature-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .feature-box ul { margin-left: 1.25rem; color: var(--text-muted); font-size: 0.9rem; }
+    .feature-box li { margin-bottom: 0.35rem; }
 
-    p {
-      margin: 0 0 0.9rem;
-    }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .video-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem; }
+    .video-card video { width: 100%; border-radius: 4px; background: #000; display: block; }
+    .video-card p { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0; }
 
-    .meta-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.25rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
+    .part-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.6rem; margin-top: 0.75rem; }
+    .part-link { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.8rem; font-size: 0.85rem; color: var(--text); }
+    .part-link:hover { border-color: var(--accent); color: var(--accent); }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .btn-link {
-      display: inline-block;
-      padding: 0.55rem 0.95rem;
-      border-radius: 8px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid #bfdbfe;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .btn-link:hover {
-      background: #dbeafe;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.5rem;
-      font-size: 0.92rem;
-    }
-
-    th, td {
-      border: 1px solid var(--border);
-      padding: 0.55rem 0.7rem;
-      text-align: left;
-    }
-
-    th {
-      background: #f5f5f4;
-      font-weight: 600;
-    }
-
-    .badge-pass {
-      background: var(--pass-bg);
-      color: var(--pass);
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-    }
-
-    .badge-fail {
-      background: var(--fail-bg);
-      color: var(--fail);
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 0.75rem;
-    }
-
+    /* Marble Track Photo Grid & Data Tables */
+    .marble-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.25rem; }
     @media (max-width: 720px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .marble-gallery { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (max-width: 480px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
+      .marble-gallery { grid-template-columns: 1fr; }
     }
+    .marble-photo { text-align: center; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem; }
+    .marble-photo img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); display: block; background: #1e293b; }
+    .marble-photo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; margin-bottom: 0; }
 
-    .photo-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--surface);
-    }
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .data-card { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; }
+    .data-card h4 { font-size: 0.95rem; color: var(--text); margin-bottom: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; }
+    th { background: var(--surface); color: var(--text); font-weight: 600; }
+    td { color: var(--text-muted); }
 
-    .photo-card img {
-      display: block;
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      cursor: pointer;
-      background: #f5f5f4;
-    }
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .tag { background: var(--bg); color: var(--accent); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid var(--border); }
 
-    .photo-caption {
-      padding: 0.6rem 0.75rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* Lightbox modal */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.82);
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      z-index: 1000;
-    }
-
-    .modal.open {
-      display: flex;
-    }
-
-    .modal-content {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-      color: #ffffff;
-    }
-
-    .modal-content img {
-      max-width: 100%;
-      max-height: 75vh;
-      border-radius: 8px;
-    }
-
-    .modal-close {
-      margin-top: 0.75rem;
-      padding: 0.45rem 1rem;
-      border: none;
-      border-radius: 6px;
-      background: #ffffff;
-      color: #1c1917;
-      font-weight: 600;
-      cursor: pointer;
-    }
+    /* Footer */
+    footer { padding: 3rem 0; border-top: 1px solid var(--border); margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; display: flex; justify-content: space-between; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <header class="site-header">
-      <div class="eyebrow">Period 6 · 2026–27 · Engineering Portfolio</div>
-      <h1>Mia Bederman</h1>
-      <p class="meta-bar">
-        <span>New Trier</span>
-        <span>·</span>
-        <span>Class meets Tuesdays, Wednesdays (half period), and Fridays</span>
-      </p>
-    </header>
+<body id="top">
 
-    <!-- Keep your existing Gearbox 3D CAD & drawing links in this section -->
-    <section id="gearbox" class="card">
-      <div class="eyebrow">Project No. 02 · Oct 4–Nov 1 (Solo)</div>
-      <h2>Fusion Gearbox</h2>
-      <p>
-        Created a working gearbox in Fusion using dimensioned sketches, downloaded gears, joints, motion links,
-        an assembly/exploded-view animation, and orthographic/isometric drawings (with platinum mechanism parts and a cherry wood box).
-      </p>
-      <p>
-        <!-- Replace href values with your actual PDF paths -->
-        <a class="btn-link" href="gearbox-drawings.pdf" target="_blank" rel="noopener">Gearbox Drawing Set (PDF)</a>
-        <a class="btn-link" href="gearbox-3d-cad-parts.pdf" target="_blank" rel="noopener">Gearbox 3D CAD Parts (PDF)</a>
-      </p>
+  <header>
+    <nav>
+      <div class="logo">MIA BEDERMAN</div>
+      <div class="nav-links">
+        <a href="#duck-rescue">Duck Rescue</a>
+        <a href="#drafting">Technical Drafting</a>
+        <a href="#cad-modeling">3D CAD &amp; Gearbox</a>
+        <a href="#marble-track">Marble Track</a>
+        <a href="EngineeringPortfolio.pdf" target="_blank">Full Portfolio PDF</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>High School Technology &amp; Engineering Portfolio</h1>
+      <p>Student at New Trier High School Technology Education Department. Documenting physical prototyping, the engineering design cycle, iterative testing, 3D CAD assemblies, and multi-view technical drafting.</p>
+      <div class="hero-ctas">
+        <a href="#duck-rescue" class="btn btn-primary">View Projects</a>
+        <a href="duckRescueNotebook.pdf" target="_blank" class="btn btn-secondary">View Engineering Notebook</a>
+      </div>
     </section>
 
-    <!-- Project No. 3: Marble Track -->
-    <section id="marble-track" class="card">
-      <div class="eyebrow">Project No. 03 · Nov 6–10</div>
-      <h2>Marble Track — Designing, Issues &amp; Solutions</h2>
+    <h2 id="duck-rescue" class="section-title">Featured Projects</h2>
 
-      <div class="meta-bar">
-        <span><strong>Team:</strong> Mia, Nacho, Miriam</span>
-        <span>·</span>
-        <span><strong>Materials:</strong> Construction paper, 3 ft of tape, 1 marble</span>
-        <span>·</span>
-        <span><strong>Timeline:</strong> 2-day build</span>
-      </div>
+    <!-- Project 1: Duck Rescue -->
+    <article class="project-detail">
+      <h3>Duck Rescue Challenge</h3>
+      <div class="project-meta">Team: Mia &amp; Ignacio | Class: Period 6 | Timeline: Aug 25 – Sept 4</div>
 
-      <p>
-        <a class="btn-link" href="MarbleRunWorksheet.pdf" target="_blank" rel="noopener">View Student Design Journal (MarbleRunWorksheet.pdf)</a>
-      </p>
+      <div class="project-body">
+        <p><strong>Problem Statement:</strong> Design and build a retrieval device to safely recover rubber ducks from a restricted pool area at least 3 feet away within a 2-minute time limit, without entering the water.</p>
 
-      <h3>1. Designing</h3>
-      <p>
-        Following the design process (Observe &rarr; Define &rarr; Ideate &rarr; Prototype &rarr; Test &rarr; Improve &rarr; Reflect),
-        we brainstormed separately and selected my initial layout as the main guideline. Our early concept planned a drop into a loop,
-        a throw-and-catch jump, and curves afterward, using construction techniques like cutting darts in paper to form curves.
-      </p>
-
-      <h3>2. Issues &amp; Setbacks</h3>
-      <ul>
-        <li><strong>Paper &amp; tape limits:</strong> Building strong supports and curves out of paper with only 3 feet of tape and limited time.</li>
-        <li><strong>Initial test failures (0/5 successful runs):</strong> Support columns failed on Trials 2–4 (1.38 s, 1.33 s, 3.56 s), and the marble did not clear the loop on Trials 1 (1.91 s) and 5 (1.21 s) due to insufficient momentum and weak supports.</li>
-        <li><strong>Throw-and-catch jump instability:</strong> The jump/throw-and-catch did not work reliably and cost momentum/consistency.</li>
-      </ul>
-
-      <h3>3. Solutions &amp; Improvements</h3>
-      <ul>
-        <li><strong>Removed the jump ("no cliff"):</strong> Scrapped the throw-and-catch so the marble could stay on a continuous track through the loop.</li>
-        <li><strong>Taller/longer drop &amp; added supports:</strong> Fixed the drop for better momentum—including Nacho adding a taller ramp leading down—and added more paper supports to keep the structure from falling down.</li>
-        <li><strong>Retest result (5/5 successful runs):</strong> After making targeted fixes and retesting, every trial reached the finish without help (1.89 s, 2.23 s, 3.31 s, 4.34 s, and 3.50 s), even though completion times varied noticeably across runs.</li>
-      </ul>
-
-      <h3>4. Test &amp; Retest Data</h3>
-      <div class="grid-2">
-        <div>
-          <h4>Initial Test Trials (0/5 Passed)</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Trial</th>
-                <th>Status</th>
-                <th>Recorded Time</th>
-                <th>Where It Failed</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><span class="badge-fail">Fail</span></td>
-                <td>1.91 s</td>
-                <td>Loop</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><span class="badge-fail">Fail</span></td>
-                <td>1.38 s</td>
-                <td>Support</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><span class="badge-fail">Fail</span></td>
-                <td>1.33 s</td>
-                <td>Support</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><span class="badge-fail">Fail</span></td>
-                <td>3.56 s</td>
-                <td>Support</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><span class="badge-fail">Fail</span></td>
-                <td>1.21 s</td>
-                <td>Loop</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="cycle-grid">
+          <div class="cycle-step">
+            <h4>1. Initial Concept</h4>
+            <p>Designed a wide net connected to PVC poles and extension strings to cover maximum area across the pool width.</p>
+          </div>
+          <div class="cycle-step">
+            <h4>2. Prototype #1 Failure</h4>
+            <p>During initial testing, the net could not break the water's surface tension, floating on top and retrieving 0 ducks.</p>
+          </div>
+          <div class="cycle-step">
+            <h4>3. Iteration &amp; Solution</h4>
+            <p>Added strategically tied weights to force the net beneath the water surface, enabling an effective scoop and lift mechanism.</p>
+          </div>
         </div>
 
-        <div>
-          <h4>Retest Trials After Improvements (5/5 Passed)</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Trial</th>
-                <th>Status</th>
-                <th>Recorded Time</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><span class="badge-pass">Pass</span></td>
-                <td>1.89 s</td>
-                <td>Completed run</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><span class="badge-pass">Pass</span></td>
-                <td>2.23 s</td>
-                <td>Completed run</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><span class="badge-pass">Pass</span></td>
-                <td>3.31 s</td>
-                <td>Completed run</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><span class="badge-pass">Pass</span></td>
-                <td>4.34 s</td>
-                <td>Completed run</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><span class="badge-pass">Pass</span></td>
-                <td>3.50 s</td>
-                <td>Completed run</td>
-              </tr>
-            </tbody>
-          </table>
+        <p><strong>Reflection:</strong> Iterating from 0 ducks rescued to a working design demonstrated the importance of evidence-based testing. Future revisions would focus on optimizing weight placement along the net edge for a more balanced scoop.</p>
+      </div>
+
+      <h4 style="font-size: 1rem; color: var(--accent); margin-bottom: 0.75rem;">Design Drawings &amp; Prototype Photos</h4>
+
+      <!-- 6-Image Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+        <div style="text-align: center;">
+          <img src="duckee.png" alt="Design Drawing 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border);">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Concept Sketch 1</p>
+        </div>
+        <div style="text-align: center;">
+          <img src="duckee2.png" alt="Design Drawing 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border);">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Concept Sketch 2</p>
+        </div>
+        <div style="text-align: center;">
+          <img src="duckee3.png" alt="Design Drawing 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border);">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Concept Sketch 3</p>
+        </div>
+        <div style="text-align: center;">
+          <img src="duckee4.png" alt="Design Drawing 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border);">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Concept Sketch 4</p>
+        </div>
+        <div style="text-align: center;">
+          <img src="duckeeModel.jpg" alt="Prototype Model 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border);">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Prototype Model 1</p>
+        </div>
+        <div style="text-align: center;">
+          <img src="duckeeModel2.jpg" alt="Prototype Model 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border);">
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Prototype Model 2</p>
         </div>
       </div>
 
-      <h3>5. Project Photos (9 Images)</h3>
-      <p>Click any image to view larger. Replace <code>marbleRun1.jpg</code> through <code>marbleRun9.jpg</code> with your actual image filenames.</p>
-
-      <div class="gallery-grid">
-        <figure class="photo-card">
-          <img src="marbleRun1.jpg" alt="Marble track photo 1" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 1 — marbleRun1.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun2.jpg" alt="Marble track photo 2" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 2 — marbleRun2.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun3.jpg" alt="Marble track photo 3" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 3 — marbleRun3.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun4.jpg" alt="Marble track photo 4" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 4 — marbleRun4.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun5.jpg" alt="Marble track photo 5" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 5 — marbleRun5.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun6.jpg" alt="Marble track photo 6" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 6 — marbleRun6.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun7.jpg" alt="Marble track photo 7" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 7 — marbleRun7.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun8.jpg" alt="Marble track photo 8" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 8 — marbleRun8.jpg</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="marbleRun9.jpg" alt="Marble track photo 9" onclick="openModal(this.src, this.alt)" />
-          <figcaption class="photo-caption">Photo 9 — marbleRun9.jpg</figcaption>
-        </figure>
+      <!-- Notebook PDF Button -->
+      <div style="background: var(--bg); border: 1px dashed var(--border); border-radius: 6px; padding: 1.25rem; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          📄 Complete testing logs, weight calculations, and full documentation are in the engineering notebook.
+        </p>
+        <a href="duckRescueNotebook.pdf" target="_blank" class="btn btn-secondary">
+          Open Engineering Notebook (PDF) &rarr;
+        </a>
       </div>
-    </section>
-  </div>
 
-  <div id="lightbox" class="modal" onclick="closeModal(event)">
-    <div class="modal-content">
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption"></p>
-      <button type="button" class="modal-close" onclick="closeModal()">Close</button>
-    </div>
-  </div>
+      <div class="tags">
+        <span class="tag">Rapid Prototyping</span>
+        <span class="tag">Iterative Testing</span>
+        <span class="tag">Engineering Design Cycle</span>
+        <span class="tag">Team Collaboration</span>
+      </div>
+    </article>
 
-  <script>
-    function openModal(src, alt) {
-      const modal = document.getElementById("lightbox");
-      const img = document.getElementById("lightbox-img");
-      const cap = document.getElementById("lightbox-caption");
-      img.src = src;
-      img.alt = alt;
-      cap.textContent = alt;
-      modal.classList.add("open");
-    }
+    <!-- Project 2: Technical Drafting -->
+    <article class="project-detail" id="drafting">
+      <h3>Technical Drafting &amp; Orthographic Design</h3>
+      <div class="project-meta">New Trier High School Technology Education Department</div>
 
-    function closeModal(event) {
-      if (!event || event.target.id === "lightbox" || event.target.classList.contains("modal-close")) {
-        document.getElementById("lightbox").classList.remove("open");
-      }
-    }
-  </script>
+      <div class="project-body">
+        <p>Multi-view orthographic and isometric technical hand-sketches detailing structural and mechanical vehicle components, adhering to standard engineering title block and scaling formats.</p>
+      </div>
+
+      <div style="background: var(--bg); border: 1px dashed var(--border); border-radius: 6px; padding: 1.25rem; text-align: center; margin-top: 1.5rem;">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          📐 Hand-sketched orthographic and isometric multi-view technical drawings.
+        </p>
+        <a href="0697_001.pdf" target="_blank" class="btn btn-secondary">
+          Open Technical Drawing (PDF) &rarr;
+        </a>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Technical Drawing</span>
+        <span class="tag">Orthographic Projection</span>
+        <span class="tag">Isometric Views</span>
+        <span class="tag">Drafting Standards</span>
+      </div>
+    </article>
+
+    <!-- Project 3: 3D CAD Modeling & Gearbox -->
+    <article class="project-detail" id="cad-modeling">
+      <h3>3D CAD Modeling &amp; Gearbox Assembly</h3>
+      <div class="project-meta">Autodesk Fusion | October 2026</div>
+
+      <div class="project-body">
+        <p>Modeled individual gearbox components in Autodesk Fusion, demonstrated turning, motion links, and assembly animation in Fusion video captures, and compiled a multi-sheet drawing set featuring an exploded assembly view followed by dimensioned orthographic and isometric part drawings.</p>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="gearboxVideo.mov" type="video/quicktime">
+              Your browser does not support the video tag.
+            </video>
+            <p><strong>Turning &amp; Motion Links:</strong> Fusion video showing gear turning and linked motion behavior.</p>
+          </div>
+          <div class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="gearboxVideo2.mov" type="video/quicktime">
+              Your browser does not support the video tag.
+            </video>
+            <p><strong>Gearbox Animation:</strong> Fusion video demonstrating the gearbox motion sequence.</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <h4>Drawing Set &amp; CAD Parts Overview</h4>
+          <ul>
+            <li><strong>Exploded Assembly &amp; Parts List:</strong> Opens with an exploded view showing every part in assembly order alongside a parts list.</li>
+            <li><strong>Dimensioned Multi-View Drawings:</strong> Each part drawing includes front, top, and side views showing hidden lines and dimensions, with a shaded isometric view in the upper-right corner.</li>
+            <li><strong>Individual Part CAD Files (9 Parts):</strong> Separate Fusion part files covering the housing panels, alignment part, and pin.</li>
+          </ul>
+
+          <!-- Update href filenames below to match your uploaded part files -->
+          <div class="part-links">
+            <a class="part-link" href="gearbox-top.pdf" target="_blank">Gearbox Top &rarr;</a>
+            <a class="part-link" href="gearbox-bottom.pdf" target="_blank">Bottom &rarr;</a>
+            <a class="part-link" href="gearbox-left.pdf" target="_blank">Left Side &rarr;</a>
+            <a class="part-link" href="gearbox-right.pdf" target="_blank">Right Side &rarr;</a>
+            <a class="part-link" href="gearbox-front.pdf" target="_blank">Front &rarr;</a>
+            <a class="part-link" href="gearbox-back-3holes.pdf" target="_blank">Back Plate (3 Holes) &rarr;</a>
+            <a class="part-link" href="gearbox-back-wheel.pdf" target="_blank">Back Plate (Wheel Hole) &rarr;</a>
+            <a class="part-link" href="gearbox-alignment.pdf" target="_blank">Alignment &rarr;</a>
+            <a class="part-link" href="gearbox-pin.pdf" target="_blank">Pin for Gear &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--bg); border: 1px dashed var(--border); border-radius: 6px; padding: 1.25rem; text-align: center; margin-top: 1.5rem;">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          ⚙️ View the full gearbox drawing package (exploded assembly + dimensioned part sheets).
+        </p>
+        <!-- Update href below to match your hosted drawing set filename -->
+        <a href="gearbox-drawings.pdf" target="_blank" class="btn btn-secondary">
+          Open Full Gearbox Drawing Set (PDF) &rarr;
+        </a>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Autodesk Fusion</span>
+        <span class="tag">3D CAD Modeling</span>
+        <span class="tag">Motion Links &amp; Animation</span>
+        <span class="tag">Exploded Assembly</span>
+        <span class="tag">Hidden Lines &amp; Dimensions</span>
+        <span class="tag">Isometric Views</span>
+      </div>
+    </article>
+
+    <!-- Project 4: Marble Track -->
+    <article class="project-detail" id="marble-track">
+      <h3>Marble Track — Designing, Issues &amp; Solutions</h3>
+      <div class="project-meta">Team: Mia, Nacho &amp; Miriam | Class: Period 6 | Timeline: Nov 6 – Nov 10 (2-Day Build)</div>
+
+      <div class="project-body">
+        <p><strong>Design Challenge:</strong> Build a working marble track out of construction paper and 3 feet of tape in two days using a single marble, incorporating features like drops, curves, and loops while avoiding weak supports and structural collapse[cite: 2].</p>
+
+        <div class="cycle-grid">
+          <div class="cycle-step">
+            <h4>1. Designing</h4>
+            <p>After individual brainstorming, the team used my initial layout as the main guide—planning a drop into a loop, a throw-and-catch jump, and curves—and used techniques like cutting darts in paper to form curves[cite: 2].</p>
+          </div>
+          <div class="cycle-step">
+            <h4>2. Issues &amp; Setbacks</h4>
+            <p>Limited to construction paper, 3 feet of tape, and tight build time, the initial test had 0/5 successful runs as paper supports failed on Trials 2–4, the marble stalled in the loop on Trials 1 and 5, and the jump/throw-and-catch was unreliable[cite: 2].</p>
+          </div>
+          <div class="cycle-step">
+            <h4>3. Solutions &amp; Improvements</h4>
+            <p>Removed the throw-and-catch jump ("no cliff"), fixed the drop with a taller entry ramp added by Nacho for more momentum, and added extra paper supports—resulting in 5/5 successful runs on retesting[cite: 2].</p>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <h4>Issues &amp; Solutions Breakdown</h4>
+          <ul>
+            <li><strong>Support Collapse:</strong> Paper columns gave way during early runs (Trials 2–4 at 1.38 s, 1.33 s, and 3.56 s), which we addressed by adding more paper supports to keep the track standing[cite: 2].</li>
+            <li><strong>Loop Momentum &amp; Jump Losses:</strong> The marble failed to clear the loop on Trials 1 (1.91 s) and 5 (1.21 s) due to low momentum and instability from the throw-and-catch jump; scrapping the jump and making a taller, longer drop gave the marble enough speed to finish consistently (1.89 s to 4.34 s across 5 retest runs)[cite: 2].</li>
+            <li><strong>Usability Reflection:</strong> If a younger child used the run, we would check whether they could easily place the marble at the top start point before redesigning[cite: 2].</li>
+          </ul>
+        </div>
+
+        <div class="data-grid">
+          <div class="data-card">
+            <h4>Initial Test Trials (0/5 Passed)</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Trial</th>
+                  <th>Result</th>
+                  <th>Time</th>
+                  <th>Failure Point</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Fail</td>
+                  <td>1.91 s</td>
+                  <td>Loop</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Fail</td>
+                  <td>1.38 s</td>
+                  <td>Support</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Fail</td>
+                  <td>1.33 s</td>
+                  <td>Support</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Fail</td>
+                  <td>3.56 s</td>
+                  <td>Support</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Fail</td>
+                  <td>1.21 s</td>
+                  <td>Loop</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="data-card">
+            <h4>Retest After Improvements (5/5 Passed)</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Trial</th>
+                  <th>Result</th>
+                  <th>Time</th>
+                  <th>Outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Pass</td>
+                  <td>1.89 s</td>
+                  <td>Completed run</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Pass</td>
+                  <td>2.23 s</td>
+                  <td>Completed run</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Pass</td>
+                  <td>3.31 s</td>
+                  <td>Completed run</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Pass</td>
+                  <td>4.34 s</td>
+                  <td>Completed run</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Pass</td>
+                  <td>3.50 s</td>
+                  <td>Completed run</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="font-size: 1rem; color: var(--accent); margin-bottom: 0.75rem;">Marble Track Photos (9 Images)</h4>
+
+      <!-- 9-Image Grid: update marbleRun1.jpg – marbleRun9.jpg to match your image filenames -->
+      <div class="marble-gallery">
+        <div class="marble-photo">
+          <img src="marbleRun1.jpg" alt="Marble Track Photo 1">
+          <p>Photo 1 (marbleRun1.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun2.jpg" alt="Marble Track Photo 2">
+          <p>Photo 2 (marbleRun2.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun3.jpg" alt="Marble Track Photo 3">
+          <p>Photo 3 (marbleRun3.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun4.jpg" alt="Marble Track Photo 4">
+          <p>Photo 4 (marbleRun4.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun5.jpg" alt="Marble Track Photo 5">
+          <p>Photo 5 (marbleRun5.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun6.jpg" alt="Marble Track Photo 6">
+          <p>Photo 6 (marbleRun6.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun7.jpg" alt="Marble Track Photo 7">
+          <p>Photo 7 (marbleRun7.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun8.jpg" alt="Marble Track Photo 8">
+          <p>Photo 8 (marbleRun8.jpg)</p>
+        </div>
+        <div class="marble-photo">
+          <img src="marbleRun9.jpg" alt="Marble Track Photo 9">
+          <p>Photo 9 (marbleRun9.jpg)</p>
+        </div>
+      </div>
+
+      <!-- Worksheet PDF Button -->
+      <div style="background: var(--bg); border: 1px dashed var(--border); border-radius: 6px; padding: 1.25rem; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          📋 View the marble run design journal worksheet with sketches, trial logs, and reflection notes.
+        </p>
+        <a href="MarbleRunWorksheet.pdf" target="_blank" class="btn btn-secondary">
+          Open Marble Run Worksheet (PDF) &rarr;
+        </a>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Paper &amp; Tape Prototyping</span>
+        <span class="tag">Iterative Testing</span>
+        <span class="tag">Momentum &amp; Supports</span>
+        <span class="tag">Team Collaboration</span>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mia Bederman. New Trier Engineering Program.</p>
+    <p><a href="#top">Back to top &uarr;</a></p>
+  </footer>
+
 </body>
 </html>
